@@ -40,27 +40,29 @@ export const Projects: React.FC = () => {
     const [selectedTab, setSelectedTab] = useState(0);
 
     return (
-        <section id="projects" className="py-16 bg-gray-900 text-white">
-            <div className="max-w-6xl mx-auto px-6">
+        <section id="projects" className="relative my-20 py-24 bg-gray-900 text-gray-100">
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900 opacity-50 -z-10"></div>
+
+            <div className="max-w-6xl mx-auto px-6 shadow-lg rounded-2xl border border-gray-700">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <h2 className="text-4xl font-bold">Projects</h2>
+                    <h2 className="pt-5 text-4xl font-bold text-white">Projects</h2>
                     <p className="mt-3 text-gray-300">
                         Here are some projects that I have developed using several programming languages and frameworks.
                     </p>
                 </motion.div>
 
-                <div className="mt-10">
+                <div className="mt-10 pb-5">
                     <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
                         <Tab.List className="flex justify-center space-x-4">
                             {["Tab 1", "Tab 2", "Tab 3"].map((tab, index) => (
                                 <Tab key={index} className={({ selected }) =>
-                                    `px-5 py-2 text-sm font-medium rounded-lg transition ${selected ? "bg-blue-500 text-white" : "bg-gray-700 text-gray-300 hover:bg-gray-600"
-                                    }`
+                                    `px-5 py-2 text-sm font-medium rounded-lg transition 
+                                    ${selected ? "bg-blue-500 text-white shadow-md" : "bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-gray-50"}`
                                 }>
                                     {tab}
                                 </Tab>
@@ -81,10 +83,10 @@ export const Projects: React.FC = () => {
                                 </motion.div>
                             </Tab.Panel>
                             <Tab.Panel>
-                                <p className="text-gray-400 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                                <p className="text-gray-200 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                             </Tab.Panel>
                             <Tab.Panel>
-                                <p className="text-gray-400 text-center">This project is my portfolio, containing several projects...</p>
+                                <p className="text-gray-200 text-center">This project is my portfolio, containing several projects...</p>
                             </Tab.Panel>
                         </Tab.Panels>
                     </Tab.Group>
@@ -93,3 +95,5 @@ export const Projects: React.FC = () => {
         </section>
     );
 };
+
+
