@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { ProjectCard } from "./ProjectCard";
 import { Tab } from "@headlessui/react";
 import { motion } from "framer-motion";
+import { ThemeContext } from "./context/ThemeContext";
 import projImg1 from "../assets/img/projects/netflix1.jpg";
 import projImg2 from "../assets/img/projects/netflix2.jpg";
 import projImg3 from "../assets/img/projects/cola.jpg";
@@ -38,31 +39,31 @@ const projects = [
 
 export const Projects: React.FC = () => {
     const [selectedTab, setSelectedTab] = useState(0);
+    const themeContext = useContext(ThemeContext);
+    const darkMode = themeContext?.darkMode;
 
     return (
-        <section id="projects" className="relative my-20 py-24 bg-gray-900 text-gray-100">
-            <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900 opacity-50 -z-10"></div>
+        <section id="projects" className={`relative py-24 my-20 shadow-lg ${darkMode ? "bg-gray-900 text-gray-100" : "bg-slate-100 text-gray-900"}`}>
+            <div className={`absolute inset-0 opacity-50 -z-10 ${darkMode ? "bg-gradient-to-b from-gray-800 to-gray-900" : "bg-gradient-to-b from-gray-300 to-gray-100"}`}></div>
 
-            <div className="max-w-6xl mx-auto px-6 shadow-lg rounded-2xl border border-gray-700">
+            <div className="max-w-6xl px-6 mx-auto rounded-2xl" data-aos="fade-up">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <h2 className="pt-5 text-4xl font-bold text-white">Projects</h2>
-                    <p className="mt-3 text-gray-300">
-                        Here are some projects that I have developed using several programming languages and frameworks.
-                    </p>
+                    <h2 className="pt-5 text-4xl font-bold" data-aos="fade-up">Projects</h2>
+                    <p className="mt-3" data-aos="fade-up">Here are some projects that I have developed using several programming languages and frameworks.</p>
                 </motion.div>
 
-                <div className="mt-10 pb-5">
+                <div className="pb-5 mt-10" >
                     <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
                         <Tab.List className="flex justify-center space-x-4">
                             {["Tab 1", "Tab 2", "Tab 3"].map((tab, index) => (
                                 <Tab key={index} className={({ selected }) =>
                                     `px-5 py-2 text-sm font-medium rounded-lg transition 
-                                    ${selected ? "bg-blue-500 text-white shadow-md" : "bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-gray-50"}`
+                                    ${selected ? "bg-blue-500 text-white shadow-md" : `${darkMode ? "bg-gray-700 text-gray-200 hover:bg-gray-600" : "bg-gray-300 text-gray-800 hover:bg-gray-400"}`}`
                                 }>
                                     {tab}
                                 </Tab>
@@ -75,7 +76,7 @@ export const Projects: React.FC = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6 }}
-                                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+                                    className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3"
                                 >
                                     {projects.map((project, index) => (
                                         <ProjectCard key={index} {...project} />
@@ -83,10 +84,10 @@ export const Projects: React.FC = () => {
                                 </motion.div>
                             </Tab.Panel>
                             <Tab.Panel>
-                                <p className="text-gray-200 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                                <p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                             </Tab.Panel>
                             <Tab.Panel>
-                                <p className="text-gray-200 text-center">This project is my portfolio, containing several projects...</p>
+                                <p className="text-center">This project is my portfolio, containing several projects...</p>
                             </Tab.Panel>
                         </Tab.Panels>
                     </Tab.Group>
@@ -95,5 +96,3 @@ export const Projects: React.FC = () => {
         </section>
     );
 };
-
-
