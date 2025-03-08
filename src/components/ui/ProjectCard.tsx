@@ -11,13 +11,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, im
         <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="relative overflow-hidden rounded-2xl shadow-lg group"
+            className="relative overflow-hidden rounded-2xl shadow-lg group w-full h-[180px]"
         >
-            <img src={imgUrl} alt={title} className="w-full h-auto object-cover rounded-2xl" />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/50 to-pink-500/50 opacity-0 group-hover:opacity-85 transition-opacity duration-300" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center">
+            {/* Gambar dengan efek blur saat hover */}
+            <img
+                src={imgUrl}
+                alt={title}
+                className="object-cover w-full h-full transition-all duration-300 rounded-2xl group-hover:blur-sm group-hover:brightness-75"
+            />
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-blue-500/50 to-pink-500/50 group-hover:opacity-85" />
+            {/* Teks yang lebih jelas saat hover */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white transition-opacity duration-300 opacity-0 group-hover:opacity-100">
                 <h4 className="text-2xl font-bold">{title}</h4>
-                <p className="italic text-sm">{description}</p>
+                <p className="text-sm italic">{description}</p>
             </div>
         </motion.div>
     );

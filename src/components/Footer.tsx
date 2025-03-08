@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-scroll"; // Pakai react-scroll
 import { ThemeContext } from "./context/ThemeContext";
-import { Instagram, Twitter, Linkedin } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
 
 const Footer = () => {
     const themeContext = useContext(ThemeContext);
@@ -22,6 +22,7 @@ const Footer = () => {
         { href: "https://instagram.com/alvinzacky31", title: "Instagram", icon: Instagram },
         { href: "https://twitter.com/Avillie31", title: "Twitter", icon: Twitter },
         { href: "https://id.linkedin.com/in/alvin-zacky-attalie", title: "LinkedIn", icon: Linkedin },
+        { href: "https://github.com/AlvinAttalie-id", title: "Github", icon: Github },
     ];
 
     return (

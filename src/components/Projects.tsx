@@ -14,12 +14,12 @@ import projImg6 from "../assets/img/projects/starbucks.jpg";
 import projImg7 from "../assets/img/projects/ama bank.jpg";
 import projImg8 from "../assets/img/projects/news app.jpg";
 import projImg9 from "../assets/img/projects/pizza hut.jpg";
-import projImg10 from "../assets/img/projects/wen article.jpg";
-import projImg11 from "../assets/img/projects/web article light mode.jpg";
-import projImg12 from "../assets/img/projects/perpustakaan.jpg";
-import projImg13 from "../assets/img/projects/portofolio1.jpg";
-import projImg14 from "../assets/img/projects/portofolio2.jpg";
-import projImg15 from "../assets/img/projects/landing pag2.jpg";
+import projImg10 from "../assets/img/projects/Project-patungan.png";
+import projImg11 from "../assets/img/projects/Surat-arsip-project.png";
+import projImg12 from "../assets/img/projects/Management-project.png";
+import projImg13 from "../assets/img/projects/ticket-location.png";
+import projImg14 from "../assets/img/projects/Office-rent.png";
+import projImg15 from "../assets/img/projects/Wheater-app.png";
 import loadingImg from "../assets/img/Loading.png";
 
 const projects = [
@@ -31,13 +31,13 @@ const projects = [
     { title: "Starbucks Landing Page", description: "With Javascript", imgUrl: projImg6 },
     { title: "AMA Bank", description: "With React JS", imgUrl: projImg7 },
     { title: "News Web", description: "With React JS", imgUrl: projImg8 },
-    { title: "Pizza Hut Landing Page", description: "With PHP", imgUrl: projImg9 },
-    { title: "Web Article Dark Mode", description: "With PHP", imgUrl: projImg10 },
-    { title: "Web Article Light Mode", description: "With PHP", imgUrl: projImg11 },
-    { title: "Bookshelf", description: "With React JS", imgUrl: projImg12 },
-    { title: "My Portfolio Dark Mode", description: "With React JS", imgUrl: projImg13 },
-    { title: "My Portfolio Light Mode", description: "With React JS", imgUrl: projImg14 },
-    { title: "Company Website", description: "With React JS", imgUrl: projImg15 },
+    { title: "Pizza Hut Landing Page", description: "With React", imgUrl: projImg9 },
+    { title: "Web Project Patungan", description: "With Laravel", imgUrl: projImg10 },
+    { title: "Web Surat Arsip", description: "With Laravel", imgUrl: projImg11 },
+    { title: "Management Project", description: "With Laravel", imgUrl: projImg12 },
+    { title: "Ticket Management", description: "With Laravel", imgUrl: projImg13 },
+    { title: "Office Rent", description: "With Laravel + React", imgUrl: projImg14 },
+    { title: "Wheater app", description: "With React JS", imgUrl: projImg15 },
 ];
 
 export const Projects: React.FC = () => {

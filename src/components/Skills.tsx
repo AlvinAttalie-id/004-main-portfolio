@@ -13,9 +13,7 @@ import meter6 from "../assets/img/nextjs.png";
 import meter7 from "../assets/img/laravel.png";
 import meter8 from "../assets/img/tailwind.webp";
 import meter9 from "../assets/img/postgresql.png";
-import meter10 from "../assets/img/androidstudio.png";
 import meter11 from "../assets/img/figma.png";
-import meter12 from "../assets/img/node.js.png";
 
 const skillsData = [
     { imgSrc: meter1, title: "PHP" },
@@ -27,9 +25,7 @@ const skillsData = [
     { imgSrc: meter7, title: "Laravel" },
     { imgSrc: meter8, title: "Tailwind CSS" },
     { imgSrc: meter9, title: "PostgreSQL" },
-    { imgSrc: meter10, title: "Android Studio" },
     { imgSrc: meter11, title: "Figma" },
-    { imgSrc: meter12, title: "Node.js" },
 ];
 
 const duplicatedSkills = [...skillsData, ...skillsData];
@@ -49,11 +45,14 @@ export const Skills = () => {
     return (
         <section
             id="skills"
-            className={`py-16 text-center overflow-hidden ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}
+            className={`py-16 text-center overflow-hidden ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+                }`}
         >
             <div className="max-w-6xl px-6 mx-auto">
                 <h2 className="mb-4 text-4xl font-bold" data-aos="fade-up">Skills</h2>
-                <p className="mb-10 text-lg" data-aos="fade-up">Here are the programming languages, tools, frameworks, and libraries that I am good at.</p>
+                <p className="mb-10 text-lg" data-aos="fade-up">
+                    Here are the programming languages, tools, frameworks, and libraries that I am good at.
+                </p>
                 <div className="relative w-full overflow-hidden" data-aos="fade-up">
                     <motion.div
                         className="flex min-w-max"
@@ -67,11 +66,12 @@ export const Skills = () => {
                         {duplicatedSkills.map((skill, index) => (
                             <motion.div
                                 key={index}
-                                className="flex flex-col items-center min-w-[120px]"
+                                className="flex flex-col items-center min-w-[120px] mx-4"
                                 data-aos="fade-in"
                             >
-                                <img src={skill.imgSrc} alt={skill.title} className="object-contain w-20 h-20" />
-
+                                <div className="flex items-center justify-center w-20 h-20 bg-white border-gray-300 rounded-full shadow-lg">
+                                    <img src={skill.imgSrc} alt={skill.title} className="object-cover w-16 h-16 rounded-full" />
+                                </div>
                             </motion.div>
                         ))}
                     </motion.div>
