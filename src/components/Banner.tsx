@@ -64,9 +64,10 @@ export const Banner = () => {
     return (
         <section
             id="home"
-            className={`relative flex items-center h-screen px-6 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}
+            className={`relative flex items-center min-h-screen px-6 py-16 overflow-hidden w-full ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+                }`}
         >
-            <div className="grid items-center w-full max-w-6xl grid-cols-1 gap-10 mx-auto md:grid-cols-2">
+            <div className="grid items-center w-full max-w-6xl grid-cols-1 gap-10 px-6 mx-auto md:grid-cols-2">
                 {/* Kiri - Teks */}
                 <motion.div
                     className="text-center md:text-left"
@@ -79,8 +80,9 @@ export const Banner = () => {
                         Hi, I'm <span className="text-blue-400">Alvin Attalie</span>
                     </h2>
                     <p className="mt-2 text-xl font-bold text-blue-400">{text}</p>
-                    <p className="mt-2 text-lg">I am a web developer committed to creating engaging and functional online experiences.
-                        I believe that every website is a reflection of a brand, and I am passionate about helping brands grow through advanced web technologies.</p>
+                    <p className="mt-2 text-lg">
+                        I am a web developer committed to creating engaging and functional online experiences.
+                    </p>
                     <Link to="projects" smooth={true} duration={800} offset={-70}>
                         <Button className="mt-6 cursor-pointer">View Projects</Button>
                     </Link>
@@ -97,8 +99,9 @@ export const Banner = () => {
                     <img
                         src={alvinimg}
                         alt="Alvin Attalie"
-                        className="w-72 md:w-96"
+                        className="max-w-[240px] md:max-w-[480px] w-full h-auto object-contain"
                     />
+
                 </motion.div>
             </div>
         </section>

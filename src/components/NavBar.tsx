@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { Link } from "react-scroll"; // Pakai react-scroll
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeContext } from "./context/ThemeContext";
 
@@ -19,30 +20,40 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const menuItems = [
+        { name: "Home", path: "home" },
+        { name: "About Me", path: "about" },
+        { name: "Projects", path: "projects" },
+        { name: "Contact", path: "contact" },
+    ];
+
     return (
         <nav
             className={`fixed top-0 left-0 w-full transition-all duration-300 z-50 ${isScrolled
-                ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md"
+                ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-xl"
                 : "bg-transparent"
                 }`}
         >
-            <div className="container flex items-center justify-between px-6 py-4 mx-auto">
+            <div className="container flex items-center justify-between px-6 py-5 mx-auto">
                 {/* Logo */}
-                <a href="#home" className="text-xl font-bold text-dark dark:text-white">
+                <Link to="home" smooth={true} duration={800} className="text-xl font-bold cursor-pointer text-dark dark:text-white">
                     My Portfolio
-                </a>
+                </Link>
 
-                {/* Desktop Toggle Theme */}
+                {/* Desktop Navigation */}
                 <div className="items-center hidden space-x-6 lg:flex">
                     <ul className="flex space-x-8">
-                        {["Beranda", "Tentang Saya", "Portfolio", "Clients", "Blog", "Contact"].map((item) => (
-                            <li key={item} className="group">
-                                <a
-                                    href={`#${item.toLowerCase().replace(" ", "")}`}
-                                    className="text-base transition-all duration-300 text-dark dark:text-white group-hover:text-primary"
+                        {menuItems.map((item) => (
+                            <li key={item.name} className="group">
+                                <Link
+                                    to={item.path}
+                                    smooth={true}
+                                    duration={800}
+                                    offset={-70} // Sesuaikan agar tidak tertutup Navbar
+                                    className="text-base transition-all duration-300 cursor-pointer text-dark dark:text-white group-hover:text-primary"
                                 >
-                                    {item}
-                                </a>
+                                    {item.name}
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -63,7 +74,7 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Toggle Button for Mobile */}
+                {/* Mobile Toggle Button */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="text-2xl lg:hidden text-dark dark:text-white focus:outline-none"
@@ -72,7 +83,7 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {/* Mobile Menu dengan Animasi & Dark Mode Toggle */}
+            {/* Mobile Menu dengan Animasi */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -83,21 +94,24 @@ const Navbar = () => {
                         className="absolute p-5 bg-white border border-gray-300 rounded-lg shadow-lg lg:hidden top-16 left-4 right-4 dark:bg-gray-900 dark:border-gray-700"
                     >
                         <ul className="space-y-4 text-center">
-                            {["Beranda", "Tentang Saya", "Portfolio", "Clients", "Blog", "Contact"].map((item) => (
+                            {menuItems.map((item) => (
                                 <motion.li
-                                    key={item}
+                                    key={item.name}
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -20 }}
                                     transition={{ duration: 0.2, delay: 0.1 }}
                                 >
-                                    <a
-                                        href={`#${item.toLowerCase().replace(" ", "")}`}
-                                        className="block text-base transition-all duration-300 text-dark dark:text-white hover:text-primary"
+                                    <Link
+                                        to={item.path}
+                                        smooth={true}
+                                        duration={800}
+                                        offset={-70}
+                                        className="block text-base transition-all duration-300 cursor-pointer text-dark dark:text-white hover:text-primary"
                                         onClick={() => setIsOpen(false)}
                                     >
-                                        {item}
-                                    </a>
+                                        {item.name}
+                                    </Link>
                                 </motion.li>
                             ))}
                         </ul>

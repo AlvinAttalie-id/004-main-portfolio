@@ -7,18 +7,26 @@ export const About = () => {
     const darkMode = themeContext?.darkMode;
 
     return (
-        <section id="about" className={`py-16 relative ${darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"}`}>
+        <section id="about" className={`py-16 relative ${darkMode ? "bg-gray-800/50 backdrop-blur-lg" : "bg-gray-100 text-gray-900"}`}>
             <div className="max-w-6xl px-6 mx-auto">
                 {/* About Me */}
                 <div className="flex flex-wrap items-center">
-                    <div className="w-full md:w-1/2" data-aos="fade-up">
+                    <div
+                        className="w-full md:w-1/2"
+                        data-aos="fade-up"
+                        data-aos-anchor-placement="top-bottom"
+                    >
                         <span className="text-sm text-gray-500 uppercase">Introduction</span>
                         <h2 className="mt-2 text-5xl font-bold">About Me</h2>
                         <p className="mt-4 leading-relaxed text-justify">
                             Hi, I'm <b>Alvin Zacky Attalie</b>, a fresh graduate with a Bachelor's degree in Informatics Engineering from Universitas Islam Kalimantan Muhammad Arsyad Al Banjari. I specialize in web application development using PHP and have a passion for UI/UX design. During my internship at the Department of Women's and Children's Empowerment, I gained valuable experience in administrative tasks and IT support, helping me develop adaptability and problem-solving skills. I'm excited to keep growing and contributing to the world of technology!
                         </p>
                     </div>
-                    <div className="flex justify-center w-full md:w-1/2" data-aos="fade-right">
+                    <div
+                        className="flex justify-center w-full md:w-1/2"
+                        data-aos="fade-left"
+                        data-aos-anchor-placement="top-bottom"
+                    >
                         <img src={programmerImg} alt="Programmer" className="w-80 md:w-96" />
                     </div>
                 </div>
@@ -26,7 +34,11 @@ export const About = () => {
                 {/* Education & Experience */}
                 <div className="flex flex-wrap mt-16">
                     {/* Education */}
-                    <div className="w-full pb-10 md:w-1/2" data-aos="fade-up">
+                    <div
+                        className="w-full pb-10 md:w-1/2"
+                        data-aos="fade-up"
+                        data-aos-anchor-placement="top-bottom"
+                    >
                         <h2 className="text-4xl font-bold">Education</h2>
                         <div className="pl-4 mt-4 border-l-4 border-blue-500">
                             <span className="text-gray-500">2020 - 2024</span>
@@ -36,7 +48,11 @@ export const About = () => {
                     </div>
 
                     {/* Experiences */}
-                    <div className="w-full pb-10 md:w-1/2" data-aos="fade-up">
+                    <div
+                        className="w-full pb-10 md:w-1/2"
+                        data-aos="fade-up"
+                        data-aos-anchor-placement="top-bottom"
+                    >
                         <h2 className="text-4xl font-bold">Experiences</h2>
                         <div className="mt-4 space-y-6">
                             <div className="pl-4 border-l-4 border-green-500">

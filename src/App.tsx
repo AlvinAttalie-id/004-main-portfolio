@@ -6,15 +6,20 @@ import { ThemeProvider } from "./components/context/ThemeContext";
 import Navbar from "./components/NavBar";
 import Banner from "./components/Banner";
 import { Projects } from "./components/Projects";
-import Contact from "./components/Contact";
+import { Contact } from "./components/Contact";
 import Footer from "./components/Footer";
 import { Skills } from "./components/Skills";
 import { About } from "./components/About";
 
 export default function App() {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true }); // Inisialisasi AOS satu kali
+    AOS.init({
+      duration: 1000, // Durasi animasi
+      once: false, // Jika `false`, animasi akan muncul kembali saat scroll ke atas
+      mirror: true, // Memungkinkan animasi terjadi lagi saat scroll ke atas
+    });
   }, []);
+
 
   return (
     <ThemeProvider>

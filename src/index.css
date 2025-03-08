@@ -35,3 +35,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+/* Mencegah overflow horizontal */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Pastikan transisi warna background smooth */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Atur warna background secara eksplisit */
+body {
+  background-color: #ffffff; /* Default Light Mode */
+}
+
+.dark body {
+  background-color: #111827; /* Dark Mode */
+}
