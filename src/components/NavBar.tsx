@@ -1,7 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-scroll"; // Pakai react-scroll
+import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeContext } from "./context/ThemeContext";
+import { Sun, Moon } from "lucide-react";
 
 const Navbar = () => {
     const themeContext = useContext(ThemeContext);
@@ -35,12 +36,9 @@ const Navbar = () => {
                 }`}
         >
             <div className="container flex items-center justify-between px-6 py-5 mx-auto">
-                {/* Logo */}
                 <Link to="home" smooth={true} duration={800} className="text-xl font-bold cursor-pointer text-dark dark:text-white">
                     My Portfolio
                 </Link>
-
-                {/* Desktop Navigation */}
                 <div className="items-center hidden space-x-6 lg:flex">
                     <ul className="flex space-x-8">
                         {menuItems.map((item) => (
@@ -49,7 +47,7 @@ const Navbar = () => {
                                     to={item.path}
                                     smooth={true}
                                     duration={800}
-                                    offset={-70} // Sesuaikan agar tidak tertutup Navbar
+                                    offset={-70}
                                     className="text-base transition-all duration-300 cursor-pointer text-dark dark:text-white group-hover:text-primary"
                                 >
                                     {item.name}
@@ -57,33 +55,38 @@ const Navbar = () => {
                             </li>
                         ))}
                     </ul>
-
-                    {/* Dark Mode Toggle di Desktop */}
-                    <div className="flex items-center">
-                        <span className="mr-2 text-sm text-slate-500">Light</span>
-                        <label className="relative inline-block w-12 h-6 bg-gray-500 rounded-full cursor-pointer">
-                            <input type="checkbox" checked={darkMode} onChange={toggleTheme} className="hidden" />
-                            <motion.span
-                                layout
-                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                className="absolute w-4 h-4 bg-white rounded-full left-1 top-1"
-                                animate={{ x: darkMode ? 24 : 0 }}
-                            />
-                        </label>
-                        <span className="ml-2 text-sm text-slate-500">Dark</span>
-                    </div>
+                    {/* Dark Mode Toggle (Desktop) */}
+                    <button
+                        onClick={toggleTheme}
+                        className="p-2 transition-all duration-300 bg-gray-200 rounded-full dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700"
+                    >
+                        {darkMode ? (
+                            <Moon size={24} className="text-gray-300 shadow-lg" />
+                        ) : (
+                            <Sun size={24} className="text-yellow-500" />
+                        )}
+                    </button>
                 </div>
-
-                {/* Mobile Toggle Button */}
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="text-2xl lg:hidden text-dark dark:text-white focus:outline-none"
-                >
-                    {isOpen ? "✖" : "☰"}
-                </button>
+                {/* Mobile View: Dark Mode Toggle + Hamburger */}
+                <div className="flex items-center lg:hidden">
+                    <button
+                        onClick={toggleTheme}
+                        className="p-2 mr-4 transition-all duration-300 bg-gray-200 rounded-full dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700"
+                    >
+                        {darkMode ? (
+                            <Moon size={24} className="text-gray-300 shadow-lg" />
+                        ) : (
+                            <Sun size={24} className="text-yellow-500" />
+                        )}
+                    </button>
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="text-2xl text-dark dark:text-white focus:outline-none"
+                    >
+                        {isOpen ? "✖" : "☰"}
+                    </button>
+                </div>
             </div>
-
-            {/* Mobile Menu dengan Animasi */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -115,21 +118,6 @@ const Navbar = () => {
                                 </motion.li>
                             ))}
                         </ul>
-
-                        {/* Dark Mode Toggle (Hanya di Mobile Menu) */}
-                        <div className="flex items-center justify-center mt-6">
-                            <span className="mr-2 text-sm text-slate-500">Light</span>
-                            <label className="relative inline-block w-12 h-6 bg-gray-500 rounded-full cursor-pointer">
-                                <input type="checkbox" checked={darkMode} onChange={toggleTheme} className="hidden" />
-                                <motion.span
-                                    layout
-                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                    className="absolute w-4 h-4 bg-white rounded-full left-1 top-1"
-                                    animate={{ x: darkMode ? 24 : 0 }}
-                                />
-                            </label>
-                            <span className="ml-2 text-sm text-slate-500">Dark</span>
-                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
