@@ -48,12 +48,15 @@ const Navbar = () => {
                                     smooth={true}
                                     duration={800}
                                     offset={-70}
+                                    spy={true}
+                                    activeClass="font-bold text-lg text-primary"
                                     className="text-base transition-all duration-300 cursor-pointer text-dark dark:text-white group-hover:text-primary"
                                 >
                                     {item.name}
                                 </Link>
                             </li>
                         ))}
+
                     </ul>
                     {/* Dark Mode Toggle (Desktop) */}
                     <button
@@ -110,6 +113,8 @@ const Navbar = () => {
                                         smooth={true}
                                         duration={800}
                                         offset={-70}
+                                        spy={true}
+                                        activeClass="font-bold text-lg text-primary"
                                         className="block text-base transition-all duration-300 cursor-pointer text-dark dark:text-white hover:text-primary"
                                         onClick={() => setIsOpen(false)}
                                     >
@@ -117,6 +122,7 @@ const Navbar = () => {
                                     </Link>
                                 </motion.li>
                             ))}
+
                         </ul>
                     </motion.div>
                 )}
