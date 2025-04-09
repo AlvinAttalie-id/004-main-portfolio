@@ -24,6 +24,7 @@ const Navbar = () => {
     const menuItems = [
         { name: "Home", path: "home" },
         { name: "About Me", path: "about" },
+        { name: "Skills", path: "skills" },
         { name: "Projects", path: "projects" },
         { name: "Contact", path: "contact" },
     ];
