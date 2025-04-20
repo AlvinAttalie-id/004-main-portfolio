@@ -94,40 +94,44 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute p-5 bg-white border border-gray-300 rounded-lg shadow-lg lg:hidden top-16 left-4 right-4 dark:bg-gray-900 dark:border-gray-700"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
+                        onClick={() => setIsOpen(false)}
                     >
-                        <ul className="space-y-4 text-center">
-                            {menuItems.map((item) => (
-                                <motion.li
-                                    key={item.name}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -20 }}
-                                    transition={{ duration: 0.2, delay: 0.1 }}
-                                >
-                                    <Link
-                                        to={item.path}
-                                        smooth={true}
-                                        duration={800}
-                                        offset={-70}
-                                        spy={true}
-                                        activeClass="font-bold text-lg text-primary"
-                                        className="block text-base transition-all duration-300 cursor-pointer text-dark dark:text-white hover:text-primary"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                </motion.li>
-                            ))}
-
-                        </ul>
+                        <motion.div
+                            initial={{ x: "-100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "-100%" }}
+                            transition={{ type: "tween", duration: 0.3 }}
+                            className="absolute top-0 bottom-0 left-0 w-3/4 max-w-xs p-6 bg-white shadow-lg dark:bg-gray-900"
+                            onClick={(e) => e.stopPropagation()} // biar klik di dalam nggak close
+                        >
+                            <ul className="space-y-6">
+                                {menuItems.map((item) => (
+                                    <li key={item.name}>
+                                        <Link
+                                            to={item.path}
+                                            smooth={true}
+                                            duration={800}
+                                            offset={-70}
+                                            spy={true}
+                                            activeClass="font-bold text-lg text-primary"
+                                            className="block text-base transition-all duration-300 cursor-pointer text-dark dark:text-white hover:text-primary"
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
+
         </nav>
     );
 };
