@@ -10,6 +10,7 @@ import { Contact } from "./components/Contact";
 import Footer from "./components/Footer";
 import { Skills } from "./components/Skills";
 import { About } from "./components/About";
+import ScrollToTopButton from "./components/ui/ScrollToTopButton";
 
 export default function App() {
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function App() {
         <Skills />
         <Projects />
         <Contact />
+        <ScrollToTopButton />
         <Footer />
       </div>
     </ThemeProvider>
