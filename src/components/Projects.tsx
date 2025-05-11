@@ -2,17 +2,11 @@ import { useState, useContext, useEffect } from "react";
 import { ProjectCard } from "./ui/ProjectCard";
 import { Tab } from "@headlessui/react";
 import { motion } from "framer-motion";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { ThemeContext } from "./context/ThemeContext";
+
 import projImg1 from "../assets/img/projects/netflix1.jpg";
-import projImg2 from "../assets/img/projects/netflix2.jpg";
 import projImg3 from "../assets/img/projects/cola.jpg";
-import projImg4 from "../assets/img/projects/company portofolio.jpg";
-import projImg5 from "../assets/img/projects/landing page.jpg";
 import projImg6 from "../assets/img/projects/starbucks.jpg";
-import projImg7 from "../assets/img/projects/ama bank.jpg";
-import projImg8 from "../assets/img/projects/news app.jpg";
 import projImg9 from "../assets/img/projects/pizza hut.jpg";
 import projImg10 from "../assets/img/projects/Project-patungan.png";
 import projImg11 from "../assets/img/projects/Surat-arsip-project.png";
@@ -22,15 +16,13 @@ import projImg14 from "../assets/img/projects/Office-rent.png";
 import projImg15 from "../assets/img/projects/Wheater-app.png";
 import loadingImg from "../assets/img/Loading.png";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const projects = [
     { title: "Netflix Landing Page", description: "With Javascript", imgUrl: projImg1 },
-    { title: "Netflix Landing Page", description: "With Javascript", imgUrl: projImg2 },
     { title: "ColaCola Landing Page", description: "With Javascript", imgUrl: projImg3 },
-    { title: "Web Company Portfolio", description: "With React JS", imgUrl: projImg4 },
-    { title: "My Landing Page", description: "With React JS", imgUrl: projImg5 },
     { title: "Starbucks Landing Page", description: "With Javascript", imgUrl: projImg6 },
-    { title: "AMA Bank", description: "With React JS", imgUrl: projImg7 },
-    { title: "News Web", description: "With React JS", imgUrl: projImg8 },
     { title: "Pizza Hut Landing Page", description: "With React", imgUrl: projImg9 },
     { title: "Web Project Patungan", description: "With Laravel", imgUrl: projImg10 },
     { title: "Web Surat Arsip", description: "With Laravel", imgUrl: projImg11 },
@@ -123,8 +115,6 @@ export const Projects: React.FC = () => {
                                                 <img src={loadingImg} alt="Loading" className="max-w-[350px] md:max-w-[400px] mx-auto" />
                                             </div>
                                         )}
-
-
 
                                     </motion.div>
                                 </Tab.Panel>

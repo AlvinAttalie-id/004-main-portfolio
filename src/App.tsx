@@ -2,25 +2,25 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import { ThemeProvider } from "./components/context/ThemeContext";
 import Navbar from "./components/NavBar";
 import Banner from "./components/Banner";
+import Footer from "./components/Footer";
+import ScrollToTopButton from "./components/ui/ScrollToTopButton";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
-import Footer from "./components/Footer";
+import { ThemeProvider } from "./components/context/ThemeContext";
 import { Skills } from "./components/Skills";
 import { About } from "./components/About";
-import ScrollToTopButton from "./components/ui/ScrollToTopButton";
+
 
 export default function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Durasi animasi
-      once: false, // Jika `false`, animasi akan muncul kembali saat scroll ke atas
-      mirror: true, // Memungkinkan animasi terjadi lagi saat scroll ke atas
+      duration: 1000,
+      once: false,
+      mirror: true,
     });
   }, []);
-
 
   return (
     <ThemeProvider>
