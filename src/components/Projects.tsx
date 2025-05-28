@@ -5,7 +5,10 @@ import { motion } from "framer-motion";
 import { ThemeContext } from "./context/ThemeContext";
 
 import projImg1 from "../assets/img/projects/netflix1.jpg";
+import projImg2 from "../assets/img/projects/MyFood.jpg";
 import projImg3 from "../assets/img/projects/cola.jpg";
+import projImg4 from "../assets/img/projects/Ticket-app.jpg";
+import projImg5 from "../assets/img/projects/Laragram.jpg";
 import projImg6 from "../assets/img/projects/starbucks.jpg";
 import projImg9 from "../assets/img/projects/pizza hut.jpg";
 import projImg10 from "../assets/img/projects/Project-patungan.png";
@@ -30,6 +33,12 @@ const projects = [
     { title: "Ticket Management", description: "With Laravel", imgUrl: projImg13 },
     { title: "Office Rent", description: "With Laravel + React", imgUrl: projImg14 },
     { title: "Wheater app", description: "With React JS", imgUrl: projImg15 },
+];
+
+const mobileProjects = [
+    { title: "Ticket App", description: "With Laravel-React", imgUrl: projImg4 },
+    { title: "MyFood App", description: "With Laravel-Livewire", imgUrl: projImg2 },
+    { title: "Laragram App", description: "With Laravel-Livewire", imgUrl: projImg5 },
 ];
 
 export const Projects: React.FC = () => {
@@ -68,7 +77,7 @@ export const Projects: React.FC = () => {
                                     key={index}
                                     className={({ selected }) =>
                                         `px-5 py-2 text-sm font-medium rounded-lg transition 
-                                    ${selected ? "bg-blue-500 text-white shadow-md" : `${darkMode ? "bg-gray-700 text-gray-200 hover:bg-gray-600" : "bg-gray-300 text-gray-800 hover:bg-gray-400"}`}`
+                                        ${selected ? "bg-blue-500 text-white shadow-md" : `${darkMode ? "bg-gray-700 text-gray-200 hover:bg-gray-600" : "bg-gray-300 text-gray-800 hover:bg-gray-400"}`}`
                                     }
                                 >
                                     {tab}
@@ -96,15 +105,17 @@ export const Projects: React.FC = () => {
                                             </motion.div>
                                         ))}
 
-                                        {index === 1 && (
-                                            <div
-                                                className="flex flex-col w-full h-full justify-center items-center text-center min-h-[300px] col-span-1 md:col-span-2"
-                                                data-aos="fade-up"
+                                        {index === 1 && mobileProjects.map((project, idx) => (
+                                            <motion.div
+                                                key={idx}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                transition={{ duration: 0.5 }}
                                             >
-                                                <p className="text-xl font-semibold">Coming Soon: Mobile Projects</p>
-                                                <img src={loadingImg} alt="Loading" className="max-w-[350px] md:max-w-[400px] mx-auto" />
-                                            </div>
-                                        )}
+                                                <ProjectCard {...project} />
+                                            </motion.div>
+                                        ))}
 
                                         {index === 2 && (
                                             <div
@@ -115,7 +126,6 @@ export const Projects: React.FC = () => {
                                                 <img src={loadingImg} alt="Loading" className="max-w-[350px] md:max-w-[400px] mx-auto" />
                                             </div>
                                         )}
-
                                     </motion.div>
                                 </Tab.Panel>
                             ))}
