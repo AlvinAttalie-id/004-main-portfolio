@@ -68,7 +68,7 @@ export const About = () => {
                             <div className="pl-4 border-l-4 border-green-500">
                                 <span className="text-gray-500">2024 - Now</span>
                                 <h3 className="text-lg font-semibold">Freelance</h3>
-                                <p className="text-gray-500">Worked on various projects as a freelance developer.</p>
+                                <p className="text-gray-500">Worked on various projects as a freelance Programmer.</p>
                             </div>
                         </div>
                     </div>
